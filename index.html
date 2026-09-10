@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocky FPS Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
+        #hud {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 18px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        #crosshair {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(0, 255, 0, 0.7);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        #crosshair::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background: rgba(0, 255, 0, 0.7);
+            left: 50%;
+            top: -12px;
+            transform: translateX(-50%);
+        }
+        #crosshair::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background: rgba(0, 255, 0, 0.7);
+            left: 50%;
+            bottom: -12px;
+            transform: translateX(-50%);
+        }
+        #ammo {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+    </style>
+</head>
+<body>
+    <div id="hud">
+        <div>Health: <span id="health">100</span></div>
+        <div>Kills: <span id="kills">0</span></div>
+    </div>
+    <div id="crosshair"></div>
+    <div id="ammo">Ammo: <span id="ammoCount">30</span></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
